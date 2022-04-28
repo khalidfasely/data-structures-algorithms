@@ -1,0 +1,23 @@
+"""i = 0
+    index = -1
+    pivot = array[index]"""
+    """array_index = array[-1 -1]
+    pivot, array[-1 -1] = array[0], pivot
+    array[0] = array_index"""
+    """left_el = array[i]
+    #pivot, array[index -1], array[i] = array[i], pivot, array[index -1]
+    print('pivot', pivot, 'must be 1', array[index -1], 'must be first el', array[i])
+    pivot, array[index -1], array[i] = array[index -1], array[i], pivot
+    print('pivot', pivot, 'must be 1', array[index -1], 'must be first el', array[i])
+    return array"""
+    """index = -1
+    pivot = array[index]
+    array_length = len(array)
+    for i in range(array_length -1):
+        if pivot < array[i]:
+            #pivot, array[index -1], array[i] = array[i], pivot, array[index -1]
+            array_index = array[index -1]
+            pivot, array[index -1] = array[i], pivot
+            array[i] = array_index
+            index += 1
+    return array"""

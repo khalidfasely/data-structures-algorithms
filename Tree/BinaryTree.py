@@ -19,11 +19,21 @@ class BinaryTree(object):
             return res
         return False
 
+    array_tree = []
     def print_tree(self):
         """Print out all tree nodes
         as they are visited in
         a pre-order traversal."""
-        return self.preorder_print(self.root)
+        string_tree = ""
+        self.preorder_print(self.root)
+        for item in self.array_tree:
+            if len(string_tree) == 0:
+                string_tree = string_tree + str(item)
+                continue
+            string_tree = string_tree + "-" + str(item)
+
+        return string_tree
+
 
     def preorder_search(self, root, find_val):
         """Helper method - use this to create a 
@@ -45,20 +55,13 @@ class BinaryTree(object):
         """Helper method - use this to create a 
         recursive print solution."""
         if root is None:
-            #print('0')
             return
 
-        """if root.value:
-            print("1", root.value)
-"""
-        #print(f'in{root.value}', end='-')
-        print(root.value, end='-')
+        self.array_tree.append(root.value)
 
         self.preorder_print(root.left)
 
         self.preorder_print(root.right)
-
-        return ""
 
 
 # Set up tree

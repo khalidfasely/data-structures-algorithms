@@ -1,2 +1,2 @@
-if left_val == True:
-            return True
+if root.value:
+            print("1", root.value)

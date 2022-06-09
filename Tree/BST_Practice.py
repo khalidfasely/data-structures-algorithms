@@ -12,12 +12,14 @@ class BST(object):
         pointer = self.root
         inserted = False
         while not inserted:
+
             if pointer.value > new_val:
                 if pointer.left is None:
                     pointer.left = Node(new_val)
                     inserted = True
                     break
                 pointer = pointer.left
+
             elif pointer.value < new_val:
                 if pointer.right is None:
                     pointer.right = Node(new_val)
@@ -26,8 +28,29 @@ class BST(object):
                 pointer = pointer.right
 
     def search(self, find_val):
-        return False
-    
+        pointer = self.root
+
+        #In case the root is the value we searching about
+        if pointer.value == find_val:
+            return True
+        
+        finish_searching = False
+        while not finish_searching:
+            if pointer.value > find_val:
+                if pointer.left is None:
+                    finish_searching = True
+                    return False
+                pointer = pointer.left
+            
+            elif pointer.value < find_val:
+                if pointer.right is None:
+                    finish_searching = True
+                    return False
+                pointer = pointer.right
+
+            else:
+                return True
+
 # Set up tree
 tree = BST(4)
 

@@ -76,7 +76,69 @@ class Graph(object):
         column numbers represent to nodes.
         Store the edge values in each spot,
         and a 0 if no edge exists."""
-        return []
+        """for node_column in self.nodes:
+            for node_row in self.nodes:
+                for edge_c in node_column.edges:
+                    for edge_r in node_row.edges:
+                        print(edge_c, edge_r)
+            print('###')"""
+        """for node in self.nodes:
+            print(node.value)
+            for edge in node.edges:
+                print(edge.value, end="-")
+            print()"""
+        adjacency_matrix = []
+        for node_a in self.nodes:
+            edges_list = []
+            for node_b in self.nodes:
+                #print(node_a.value, '**', node_b.value)
+                if node_a.value == node_b.value:
+                    #Insert 0 to the tuple
+                    edges_list.append(0)
+                    #print(0)
+                else:
+                    num = 0
+                    for edge_a in node_a.edges:
+                        for edge_b in node_b.edges:
+                            if edge_a.value == edge_b.value:
+                                # check if node a from is equal edge a from
+                                if edge_a.node_from.value == node_a.value:
+                                    #print(1, edge_a.value)
+                                    num = edge_a.value
+                                    #edges_list.append(edge_a.value)
+                                #else:
+                                #    #print(0)
+                                #    edges_list.append(0)
+                    edges_list.append(num)
+                    #print(num)
+            adjacency_matrix.append(edges_list)
+        """for node_column in self.nodes:
+            print(node_column.value)
+            for node_row in self.nodes:
+                if (node_column.value == node_row.value):
+                    print(0) #if they are connected with some edges # if they are the same nodes
+                else:
+                    edge = 0
+                    for edge_c in node_column.edges:
+                        for edge_r in node_row.edges:
+                            if edge_r.node_from.value == edge_c.node_to.value:# or edge_r.node_to.value == edge_c.node_from.value:
+                                edge = 1 #edge_c.value #edge_r.value
+                    # check if they are connected some way from one to another
+                    # if node_column.edges.node_to.value == node_row.edges.node_from.value
+                        # edge valuef
+                    # else: 0
+                    ###print(node_column.value, node_row.value)
+                    print(edge)
+            print('###')///
+            #print(node.value)
+            ///for edge in self.edges:
+                print(edge.value)
+                for edge in node.edges:
+                    print('node edge', edge.value, end=" ")
+                print('/')"""
+#            for edge in node.edges:
+#                print(node.value, edge.value)
+        return adjacency_matrix
 
 graph = Graph()
 graph.insert_edge(100, 1, 2)
